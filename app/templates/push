@@ -1,0 +1,7 @@
+{{ data.user_name }} pushed to branch _{{ data.ref }}_ of _in project
+{% if data.project.namespace is string %}{{ data.project.namespace }}/{{ data.project.name }}{% else %}
+    {{ data.project.name }}{% endif %}_ <{{ data.repository.homepage }}>:
+{% for commit in data.commits %}
+    *{% print commit.id[:8] %}* <{{ commit.url }}>
+    {{ commit.message }}
+{%- endfor %}

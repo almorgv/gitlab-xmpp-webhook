@@ -1,0 +1,1 @@
+docker run --rm -d -p 8080:8080/tcp --name gitlab-xmpp-webhook gitlab-xmpp-webhook

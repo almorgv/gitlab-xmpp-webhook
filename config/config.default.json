@@ -1,0 +1,7 @@
+{
+    "xmpp_host": "jabber",
+    "xmpp_port": 5222,
+    "bot_jid": "jid@jabber",
+    "bot_pass": "password",
+    "bot_nick": "gitlab_bot"
+}

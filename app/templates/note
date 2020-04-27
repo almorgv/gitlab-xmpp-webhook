@@ -1,0 +1,10 @@
+{{ data.user.name }} commented on {{ data.object_attributes.noteable_type }}
+{% if data.merge_request %}
+    "{{ data.merge_request.title }}"
+{% endif %}
+{% if data.commit %}
+    "{{ data.commit.message }}"
+{% endif %}
+in project <{{ data.project.path_with_namespace }}>
+{{ data.object_attributes.note }}
+{{ data.object_attributes.url }}

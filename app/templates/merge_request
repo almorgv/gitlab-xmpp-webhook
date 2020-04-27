@@ -1,0 +1,19 @@
+{% if data.object_attributes.action == "update" %}
+    {% if data.object_attributes.work_in_progress == false %}
+        {{ data.user.name }} updated merge request:
+        "{{ data.object_attributes.title }}"
+        {% if data.changes.total_time_spent %}
+            Last commit "{{ data.object_attributes.last_commit.message | replace('\n', '') }}"
+        {% endif %}
+        {% if data.changes.title and data.changes.title.previous.startswith('WIP') %}
+            It is no longer in WIP state
+        {% endif %}
+        in project <{{ data.project.path_with_namespace }}>
+        {{ data.object_attributes.url }}
+    {% endif %}
+{% else %}
+    {{ data.user.name }} {{ data.object_attributes.state }} merge request
+    "{{ data.object_attributes.title }}"
+    in project <{{ data.project.path_with_namespace }}>
+    {{ data.object_attributes.url }}
+{% endif %}

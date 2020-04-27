@@ -1,0 +1,8 @@
+{% if data.object_attributes.status == "failed" %}
+    {% if data.object_attributes.ref == data.project.default_branch or data.object_attributes.ref == "master" %}
+        Pipeline {{ data.object_attributes.detailed_status }} on branch {{ data.object_attributes.ref }} by {{ data.object_attributes.source }} in project <{{ data.project.path_with_namespace }}>
+        {{ data.project.web_url }}/pipelines/{{ data.object_attributes.id }}
+        Last commit "{{ data.commit.message.rstrip('\n') }}" by {{ data.commit.author.name }}
+        {{ data.commit.url }}
+    {% endif %}
+{% endif %}
